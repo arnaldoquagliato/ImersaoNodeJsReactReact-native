@@ -1,0 +1,59 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Curso Javascript</title>
+    </head>
+    <body>
+        <div id = "app">
+            <button id = "btn">Quadrado</button>
+
+            <div id = "box"></div>
+            <input type="text" name="nome"> 
+            <button onClick="adicionar()">Adicionar</button>
+            <ul></ul>
+        </div>
+
+       <script>
+            var btnElement = document.getElementById('btn');
+            var squaresElement = document.getElementById('box');
+
+            function getRandomColor() {
+            var letters = '0123456789ABCDEF';
+            var color = '#';
+            for (var i = 0; i < 6; i++) {
+                color += letters[Math.floor(Math.random() * 16)];
+            }
+                return color;
+            }
+
+            btnElement.onclick = function () {
+            var square = document.createElement('div');
+
+            square.style.width = '100px';
+            square.style.height = '100px';
+            square.style.backgroundColor = '#F00';
+
+            square.onmouseover = function () {
+                square.style.backgroundColor = getRandomColor();
+            }
+
+            squaresElement.appendChild(square);
+            };
+            var namElement = document.querySelector('ul');
+            function adicionar(){            
+                var nameElemente = document.querySelector('input')
+
+                var nome = nameElemente.value;
+                var liElement = document.createElement('li');
+                var textElemente = document.createTextNode(nome)
+
+                liElement.appendChild(textElemente)
+                namElement.appendChild(liElement)
+
+                nameElemente.value = "";
+                
+            }
+
+       </script> 
+    </body>
+</html>
